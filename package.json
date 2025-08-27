@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm run dev",
-    "build": "npm run build",
-    "start": "npm start"
+    "dev": "npx http-server . -p 3000 -c-1",
+    "start": "npx http-server . -p 3000",
+    "build": "echo 'No build process configured'"
   },
   "dependencies": {},
   "devDependencies": {}
