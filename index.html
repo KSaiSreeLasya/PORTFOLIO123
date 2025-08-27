@@ -3,39 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
-            text-align: center;
-        }
-    </style>
+    <title>Nasruddin Annapuri - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="src/Portfolio.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Your App</h1>
-        <p>Your application is now running successfully!</p>
-        <p>You can start building your project from here.</p>
-    </div>
-    <script src="app.js"></script>
+    <div id="root"></div>
+
+    <script type="text/babel" src="src/Portfolio.jsx"></script>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const Portfolio = () => {
+          const [activeSection, setActiveSection] = useState('home');
+          const [isMenuOpen, setIsMenuOpen] = useState(false);
+          const [isLoaded, setIsLoaded] = useState(false);
+
+          const achievements = [
+            "Three-time school-level drawing competition winner",
+            "Two-time abacus competition winner",
+            "District-level science fair runner-up among 250+ teams",
+            "State-level quiz competition winner among 50+ teams",
+            "Regional-level badminton player",
+            "Led decoration and organized multiple school events"
+          ];
+
+          const navigationItems = ["Home", "About", "Skills", "Projects", "Contact"];
+
+          const skillCategories = [
+            {
+              title: "Programming Languages",
+              skills: ["C", "Java", "Python", "JavaScript", "OOP"]
+            },
+            {
+              title: "Web Technologies",
+              skills: ["Node.js", "Express.js", "RESTful APIs", "HTML5", "CSS3", "Bootstrap", "Tailwind CSS"]
+            },
+            {
+              title: "Databases & Tools",
+              skills: ["MongoDB", "MySQL", "Git", "GitHub"]
+            },
+            {
+              title: "Soft Skills",
+              skills: ["Problem-solving", "Team collaboration", "Project management", "Leadership", "Adaptability"]
+            }
+          ];
+
+          const projects = [
+            {
+              title: "NINA - Autonomous Delivery Robot",
+              period: "Sep 2023 - Sep 2024",
+              tech: "Embedded C, MERN Stack, Robotics",
+              description: "Integrated GPS tracking and led a team to build portfolio website, enhancing system reliability by 25% improving data visualization with 20% faster rendering.",
+              highlights: ["Real-time tracking", "30% delay reduction", "Team leadership"]
+            },
+            {
+              title: "FoodDelivery E-commerce Platform",
+              period: "Jan 2024 - Apr 2024",
+              tech: "React, Node.js, MongoDB, Stripe",
+              description: "Built a responsive full-stack food ordering platform integrated with a payment gateway, increasing mobile engagement by 50% and transaction success by 20%.",
+              highlights: ["50% increase", "Stripe integration", "20% better transactions"]
+            },
+            {
+              title: "Wanderlust Travel Platform",
+              period: "May 2023 - Aug 2023",
+              tech: "MERN Stack, Cloudinary, Mapbox API",
+              description: "Engineered a full-stack travel platform with user authentication, increasing user engagement by 35% through enhanced user experience.",
+              highlights: ["35% increase", "RESTful APIs", "25% response time"]
+            }
+          ];
+
+          useEffect(() => {
+            setTimeout(() => setIsLoaded(true), 100);
+          }, []);
+
+          const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+          const handleSectionChange = (section) => {
+            setActiveSection(section.toLowerCase());
+            setIsMenuOpen(false);
+          };
+
+          return (
+            React.createElement('div', { className: `portfolio ${isLoaded ? 'loaded' : ''}` },
+              // Navigation
+              React.createElement('nav', { className: 'navbar' },
+                React.createElement('div', { className: 'nav-container' },
+                  React.createElement('div', { className: 'nav-logo' }, 'Nasruddin Annapuri'),
+
+                  React.createElement('div', { className: 'nav-menu' },
+                    navigationItems.map((item) =>
+                      React.createElement('button', {
+                        key: item,
+                        onClick: () => handleSectionChange(item),
+                        className: `nav-link ${activeSection === item.toLowerCase() ? 'active' : ''}`
+                      }, item)
+                    )
+                  ),
+
+                  React.createElement('button', {
+                    className: 'mobile-menu-btn',
+                    onClick: toggleMenu
+                  }, '☰')
+                ),
+
+                isMenuOpen && React.createElement('div', { className: 'mobile-menu' },
+                  navigationItems.map((item) =>
+                    React.createElement('button', {
+                      key: item,
+                      onClick: () => handleSectionChange(item),
+                      className: 'mobile-nav-link'
+                    }, item)
+                  )
+                )
+              ),
+
+              // Home Section
+              activeSection === 'home' && React.createElement('section', { className: 'home-section' },
+                React.createElement('div', { className: 'container' },
+                  React.createElement('div', { className: 'hero-content' },
+                    React.createElement('div', { className: 'hero-text' },
+                      React.createElement('h1', { className: 'hero-title' }, 'Nasruddin Annapuri'),
+                      React.createElement('h2', { className: 'hero-subtitle' }, 'Software Developer'),
+                      React.createElement('p', { className: 'hero-description' },
+                        'Motivated Computer Science student with expertise in full-stack development. Proven ability to build scalable software solutions and solve complex problems.'
+                      ),
+                      React.createElement('div', { className: 'hero-buttons' },
+                        React.createElement('button', {
+                          className: 'btn-primary',
+                          onClick: () => setActiveSection('projects')
+                        }, 'View Projects'),
+                        React.createElement('a', {
+                          href: 'https://portfoliowebsite-5b94.onrender.com/',
+                          target: '_blank',
+                          rel: 'noopener noreferrer',
+                          className: 'btn-secondary'
+                        }, 'Live Portfolio')
+                      )
+                    ),
+                    React.createElement('div', { className: 'hero-avatar' },
+                      React.createElement('div', { className: 'avatar-circle' }, 'N')
+                    )
+                  )
+                )
+              ),
+
+              // About Section
+              activeSection === 'about' && React.createElement('section', { className: 'about-section' },
+                React.createElement('div', { className: 'container' },
+                  React.createElement('h2', { className: 'section-title' }, 'About Me'),
+                  React.createElement('div', { className: 'about-grid' },
+                    React.createElement('div', { className: 'education-block' },
+                      React.createElement('h3', { className: 'block-title' }, 'Education'),
+                      React.createElement('div', { className: 'education-item' },
+                        React.createElement('h4', null, 'Parul University (2021 – 2025)'),
+                        React.createElement('p', null, 'B.Tech in Computer Science and Engineering - AI'),
+                        React.createElement('p', { className: 'highlight' }, 'CGPA: 8.65')
+                      ),
+                      React.createElement('div', { className: 'education-item' },
+                        React.createElement('h4', null, 'Narayana Junior College (2019 – 2021)'),
+                        React.createElement('p', null, 'Intermediate (MPC)'),
+                        React.createElement('p', { className: 'highlight' }, 'Percentage: 94.5%')
+                      )
+                    ),
+
+                    React.createElement('div', { className: 'contact-block' },
+                      React.createElement('h3', { className: 'block-title' }, 'Contact Information'),
+                      React.createElement('div', { className: 'contact-list' },
+                        React.createElement('div', { className: 'contact-item' },
+                          React.createElement('span', { className: 'contact-icon' }, '📞'),
+                          React.createElement('span', null, '+91-9676939529')
+                        ),
+                        React.createElement('div', { className: 'contact-item' },
+                          React.createElement('span', { className: 'contact-icon' }, '✉️'),
+                          React.createElement('a', { href: 'mailto:nasruddinannapuri@gmail.com' }, 'nasruddinannapuri@gmail.com')
+                        ),
+                        React.createElement('div', { className: 'contact-item' },
+                          React.createElement('span', { className: 'contact-icon' }, '💼'),
+                          React.createElement('a', {
+                            href: 'https://linkedin.com/in/nasruddinannapuri',
+                            target: '_blank',
+                            rel: 'noopener noreferrer'
+                          }, 'LinkedIn Profile')
+                        ),
+                        React.createElement('div', { className: 'contact-item' },
+                          React.createElement('span', { className: 'contact-icon' }, '🔗'),
+                          React.createElement('a', {
+                            href: 'https://github.com/nasruddinannapuri',
+                            target: '_blank',
+                            rel: 'noopener noreferrer'
+                          }, 'GitHub Profile')
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+
+              // Skills Section
+              activeSection === 'skills' && React.createElement('section', { className: 'skills-section' },
+                React.createElement('div', { className: 'container' },
+                  React.createElement('h2', { className: 'section-title' }, 'Technical Skills'),
+                  React.createElement('div', { className: 'skills-grid' },
+                    skillCategories.map((category, index) =>
+                      React.createElement('div', { key: index, className: 'skill-category' },
+                        React.createElement('h3', { className: 'category-title' }, category.title),
+                        React.createElement('div', { className: 'skill-tags' },
+                          category.skills.map((skill, skillIndex) =>
+                            React.createElement('span', { key: skillIndex, className: 'skill-tag' }, skill)
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+
+              // Projects Section
+              activeSection === 'projects' && React.createElement('section', { className: 'projects-section' },
+                React.createElement('div', { className: 'container' },
+                  React.createElement('h2', { className: 'section-title' }, 'Featured Projects'),
+                  React.createElement('div', { className: 'projects-grid' },
+                    projects.map((project, index) =>
+                      React.createElement('div', { key: index, className: 'project-card' },
+                        React.createElement('h3', { className: 'project-title' }, project.title),
+                        React.createElement('p', { className: 'project-period' }, project.period),
+                        React.createElement('p', { className: 'project-tech' }, project.tech),
+                        React.createElement('p', { className: 'project-description' }, project.description),
+                        React.createElement('div', { className: 'project-highlights' },
+                          project.highlights.map((highlight, highlightIndex) =>
+                            React.createElement('span', { key: highlightIndex, className: 'highlight-tag' }, highlight)
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+
+              // Contact Section
+              activeSection === 'contact' && React.createElement('section', { className: 'contact-section' },
+                React.createElement('div', { className: 'container' },
+                  React.createElement('h2', { className: 'section-title' }, 'Achievements & Certifications'),
+                  React.createElement('div', { className: 'contact-grid' },
+                    React.createElement('div', { className: 'achievements-block' },
+                      React.createElement('h3', { className: 'block-title' }, 'Key Achievements'),
+                      React.createElement('div', { className: 'achievements-list' },
+                        achievements.map((achievement, index) =>
+                          React.createElement('div', { key: index, className: 'achievement-item' },
+                            React.createElement('span', { className: 'achievement-icon' }, '🏆'),
+                            React.createElement('span', null, achievement)
+                          )
+                        )
+                      )
+                    ),
+
+                    React.createElement('div', { className: 'certifications-block' },
+                      React.createElement('h3', { className: 'block-title' }, 'Certifications'),
+                      React.createElement('div', { className: 'certifications-list' },
+                        React.createElement('div', { className: 'certification-card' },
+                          React.createElement('h4', null, 'ByteXL Summer Internship 2024'),
+                          React.createElement('p', { className: 'cert-period' }, 'Full Stack Development | Summer 2024'),
+                          React.createElement('p', null, 'Gained hands-on experience in MERN stack development through intensive training program.')
+                        ),
+                        React.createElement('div', { className: 'certification-card' },
+                          React.createElement('h4', null, 'Amazon ML Summer School 2023'),
+                          React.createElement('p', { className: 'cert-period' }, 'Machine Learning | Sep 2023 - Oct 2023'),
+                          React.createElement('p', null, 'Completed comprehensive training on ML fundamentals, algorithms, and applications.')
+                        )
+                      )
+                    )
+                  ),
+
+                  React.createElement('div', { className: 'footer-contact' },
+                    React.createElement('h3', null, "Let's Connect"),
+                    React.createElement('p', null, 'Ready to contribute innovative solutions in dynamic environments'),
+                    React.createElement('div', { className: 'footer-links' },
+                      React.createElement('a', { href: 'mailto:nasruddinannapuri@gmail.com' }, 'nasruddinannapuri@gmail.com'),
+                      React.createElement('a', { href: 'tel:+919676939529' }, '+91-9676939529'),
+                      React.createElement('a', {
+                        href: 'https://portfoliowebsite-5b94.onrender.com/',
+                        target: '_blank',
+                        rel: 'noopener noreferrer'
+                      }, 'Live Portfolio')
+                    ),
+                    React.createElement('div', { className: 'copyright' },
+                      React.createElement('p', null, '© 2024 Nasruddin Annapuri. All rights reserved.')
+                    )
+                  )
+                )
+              )
+            )
+          );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(Portfolio));
+    </script>
 </body>
 </html>
