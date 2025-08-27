@@ -474,55 +474,83 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Let's Work Together</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>Ready to contribute innovative solutions in dynamic environments. I'm always interested in new opportunities and exciting projects.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <a href="mailto:nasruddinannapuri@gmail.com">nasruddinannapuri@gmail.com</a>
+                    <h3>Ready to Start Your Project?</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. Let's discuss how I can help bring your ideas to life with scalable web solutions and AI-powered features.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:nasruddinannapuri@gmail.com">nasruddinannapuri@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📱</span>
-                            <a href="tel:+919676939529">+91-9676939529</a>
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+919676939529">+91-9676939529</a>
+                            </div>
                         </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span>Parul University, Vadodara, Gujarat</span>
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <span>Parul University, Vadodara, Gujarat</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="achievements">
-                        <h4>Key Achievements</h4>
-                        <ul class="achievement-list">
-                            <li>Three-time school-level drawing competition winner</li>
-                            <li>Two-time abacus competition winner</li>
-                            <li>District-level science fair runner-up among 250+ teams</li>
-                            <li>State-level quiz competition winner among 50+ teams</li>
-                            <li>Regional-level badminton player</li>
-                            <li>Led decoration and organized multiple school events</li>
-                        </ul>
+                    <div class="social-connect">
+                        <h4>Connect with me</h4>
+                        <div class="social-links-grid">
+                            <a href="https://linkedin.com/in/nasruddinannapuri" target="_blank" class="social-link-card linkedin">
+                                <span class="social-icon">💼</span>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/nasruddinannapuri" target="_blank" class="social-link-card github">
+                                <span class="social-icon">🔗</span>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.fiverr.com/nasruddin_dev" target="_blank" class="social-link-card fiverr">
+                                <span class="social-icon">💚</span>
+                                <span>Fiverr</span>
+                            </a>
+                            <a href="https://www.upwork.com/freelancers/nasruddin" target="_blank" class="social-link-card upwork">
+                                <span class="social-icon">🟢</span>
+                                <span>Upwork</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="contact-form">
-                    <form class="form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                    <form class="form" onsubmit="handleFormSubmit(event)">
+                        <div class="form-header">
+                            <h3>Send a Message</h3>
+                            <p>Tell me about your project and let's make it happen!</p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="text" placeholder="Project Subject" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
+                            <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">Send Message</button>
+                        <button type="submit" class="btn-send-message">
+                            <span class="btn-icon">📩</span>
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
