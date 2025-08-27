@@ -170,50 +170,74 @@
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                <div class="skill-category" data-animation="slide-left">
+                    <div class="skill-header">
+                        <div class="skill-icon">💻</div>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag" data-level="advanced">C</span>
+                        <span class="skill-tag" data-level="advanced">Java</span>
+                        <span class="skill-tag" data-level="expert">Python</span>
+                        <span class="skill-tag" data-level="expert">JavaScript</span>
+                        <span class="skill-tag" data-level="advanced">OOP</span>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
+
+                <div class="skill-category" data-animation="slide-right">
+                    <div class="skill-header">
+                        <div class="skill-icon">🌐</div>
+                        <h3>Web Technologies</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress" data-progress="95"></div>
+                    </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag" data-level="expert">Node.js</span>
+                        <span class="skill-tag" data-level="expert">Express.js</span>
+                        <span class="skill-tag" data-level="expert">React.js</span>
+                        <span class="skill-tag" data-level="advanced">HTML5</span>
+                        <span class="skill-tag" data-level="advanced">CSS3</span>
+                        <span class="skill-tag" data-level="intermediate">Bootstrap</span>
+                        <span class="skill-tag" data-level="advanced">Tailwind CSS</span>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Databases & Tools</h3>
+
+                <div class="skill-category" data-animation="slide-left">
+                    <div class="skill-header">
+                        <div class="skill-icon">🗄️</div>
+                        <h3>Databases & Tools</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">Cloudinary</span>
-                        <span class="skill-tag">Mapbox API</span>
+                        <span class="skill-tag" data-level="advanced">MongoDB</span>
+                        <span class="skill-tag" data-level="intermediate">MySQL</span>
+                        <span class="skill-tag" data-level="expert">Git</span>
+                        <span class="skill-tag" data-level="expert">GitHub</span>
+                        <span class="skill-tag" data-level="intermediate">Cloudinary</span>
+                        <span class="skill-tag" data-level="intermediate">Mapbox API</span>
                     </div>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
+
+                <div class="skill-category" data-animation="slide-right">
+                    <div class="skill-header">
+                        <div class="skill-icon">🤝</div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress" data-progress="92"></div>
+                    </div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Problem-solving</span>
-                        <span class="skill-tag">Team Collaboration</span>
-                        <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Leadership</span>
-                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag" data-level="expert">Problem-solving</span>
+                        <span class="skill-tag" data-level="advanced">Team Collaboration</span>
+                        <span class="skill-tag" data-level="advanced">Project Management</span>
+                        <span class="skill-tag" data-level="expert">Leadership</span>
+                        <span class="skill-tag" data-level="expert">Adaptability</span>
                     </div>
                 </div>
             </div>
@@ -225,83 +249,170 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-animation="slide-left">
                     <div class="project-image">
                         <div class="project-placeholder">🤖</div>
+                        <div class="project-overlay">
+                            <div class="project-tech-icons">
+                                <span class="tech-icon">⚡</span>
+                                <span class="tech-icon">🔧</span>
+                                <span class="tech-icon">📊</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
+                        <div class="project-badge">Robotics</div>
                         <h3>NINA - Autonomous Delivery Robot</h3>
                         <p class="project-period">Sep 2023 - Sep 2024</p>
                         <p class="project-tech">Embedded C, MERN Stack, Robotics</p>
                         <p>Integrated GPS tracking and led a team to build portfolio website, enhancing system reliability by 25% and improving data visualization with 20% faster rendering.</p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">25%</span>
+                                <span class="stat-label">Reliability</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">20%</span>
+                                <span class="stat-label">Faster Rendering</span>
+                            </div>
+                        </div>
                         <div class="project-highlights">
                             <span>Real-time tracking</span>
                             <span>30% delay reduction</span>
                             <span>Team leadership</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
+                            <a href="#" class="project-link">
+                                <span class="link-icon">👁️</span>
+                                View Project
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-animation="slide-right">
                     <div class="project-image">
                         <div class="project-placeholder">🍕</div>
+                        <div class="project-overlay">
+                            <div class="project-tech-icons">
+                                <span class="tech-icon">⚛️</span>
+                                <span class="tech-icon">💳</span>
+                                <span class="tech-icon">📱</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
+                        <div class="project-badge">E-commerce</div>
                         <h3>FoodDelivery E-commerce Platform</h3>
                         <p class="project-period">Jan 2024 - Apr 2024</p>
                         <p class="project-tech">React, Node.js, MongoDB, Stripe</p>
                         <p>Built a responsive full-stack food ordering platform integrated with payment gateway, increasing mobile engagement by 50% and transaction success by 20%.</p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50%</span>
+                                <span class="stat-label">Mobile Engagement</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">20%</span>
+                                <span class="stat-label">Better Transactions</span>
+                            </div>
+                        </div>
                         <div class="project-highlights">
                             <span>50% mobile engagement</span>
                             <span>Stripe integration</span>
                             <span>20% better transactions</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/nasruddinannapuri/FoodStore" target="_blank" class="project-link">GitHub</a>
+                            <a href="https://github.com/nasruddinannapuri/FoodStore" target="_blank" class="project-link">
+                                <span class="link-icon">📁</span>
+                                GitHub
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-animation="slide-left">
                     <div class="project-image">
                         <div class="project-placeholder">✈️</div>
+                        <div class="project-overlay">
+                            <div class="project-tech-icons">
+                                <span class="tech-icon">🗺️</span>
+                                <span class="tech-icon">☁️</span>
+                                <span class="tech-icon">🔐</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
+                        <div class="project-badge">Travel</div>
                         <h3>Wanderlust Travel Platform</h3>
                         <p class="project-period">May 2023 - Aug 2023</p>
                         <p class="project-tech">MERN Stack, Cloudinary, Mapbox API</p>
                         <p>Engineered a full-stack travel platform with user authentication, increasing user engagement by 35% through enhanced user experience and RESTful API implementation.</p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">35%</span>
+                                <span class="stat-label">User Engagement</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25%</span>
+                                <span class="stat-label">Faster Response</span>
+                            </div>
+                        </div>
                         <div class="project-highlights">
                             <span>35% user engagement</span>
                             <span>RESTful APIs</span>
                             <span>25% faster response</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/nasruddinannapuri/MajorProject" target="_blank" class="project-link">GitHub</a>
+                            <a href="https://github.com/nasruddinannapuri/MajorProject" target="_blank" class="project-link">
+                                <span class="link-icon">📁</span>
+                                GitHub
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-animation="slide-right">
                     <div class="project-image">
                         <div class="project-placeholder">💼</div>
+                        <div class="project-overlay">
+                            <div class="project-tech-icons">
+                                <span class="tech-icon">🎨</span>
+                                <span class="tech-icon">📱</span>
+                                <span class="tech-icon">✨</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="project-content">
+                        <div class="project-badge">Portfolio</div>
                         <h3>Portfolio Website</h3>
                         <p class="project-period">2024</p>
                         <p class="project-tech">React, CSS3, Responsive Design</p>
                         <p>Modern, responsive portfolio website showcasing projects and skills with dark theme and smooth animations for optimal user experience.</p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Responsive</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Dark</span>
+                                <span class="stat-label">Theme</span>
+                            </div>
+                        </div>
                         <div class="project-highlights">
                             <span>Dark theme</span>
                             <span>Mobile responsive</span>
                             <span>Smooth animations</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/KSaiSreeLasya/PORTFOLIO" target="_blank" class="project-link">GitHub</a>
-                            <a href="https://portfoliowebsite-5b94.onrender.com/" target="_blank" class="project-link demo">Live Demo</a>
+                            <a href="https://github.com/KSaiSreeLasya/PORTFOLIO" target="_blank" class="project-link">
+                                <span class="link-icon">📁</span>
+                                GitHub
+                            </a>
+                            <a href="https://portfoliowebsite-5b94.onrender.com/" target="_blank" class="project-link demo">
+                                <span class="link-icon">🚀</span>
+                                Live Demo
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -383,6 +494,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919676939529?text=Hello%20Nasruddin!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" class="whatsapp-btn">
+            <div class="whatsapp-icon">
+                <svg viewBox="0 0 24 24" fill="#ffffff">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.306"/>
+                </svg>
+            </div>
+            <span class="whatsapp-text">Chat with me</span>
+        </a>
+    </div>
+
+    <!-- Cursor Following Elements -->
+    <div class="cursor-follower" id="cursor-follower">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Section Scroll Indicators -->
+    <div class="scroll-indicator-home section-scroll-indicator" data-section="about">
+        <div class="scroll-arrow">↓</div>
+        <span>About Me</span>
+    </div>
 
     <script src="script.js"></script>
 </body>
