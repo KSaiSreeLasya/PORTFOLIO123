@@ -57,21 +57,36 @@
               period: "Sep 2023 - Sep 2024",
               tech: "Embedded C, MERN Stack, Robotics",
               description: "Integrated GPS tracking and led a team to build portfolio website, enhancing system reliability by 25% improving data visualization with 20% faster rendering.",
-              highlights: ["Real-time tracking", "30% delay reduction", "Team leadership"]
+              highlights: ["Real-time tracking", "30% delay reduction", "Team leadership"],
+              github: null,
+              demo: null
             },
             {
               title: "FoodDelivery E-commerce Platform",
               period: "Jan 2024 - Apr 2024",
               tech: "React, Node.js, MongoDB, Stripe",
               description: "Built a responsive full-stack food ordering platform integrated with a payment gateway, increasing mobile engagement by 50% and transaction success by 20%.",
-              highlights: ["50% increase", "Stripe integration", "20% better transactions"]
+              highlights: ["50% increase", "Stripe integration", "20% better transactions"],
+              github: "https://github.com/nasruddinannapuri/FoodStore",
+              demo: null
             },
             {
               title: "Wanderlust Travel Platform",
               period: "May 2023 - Aug 2023",
               tech: "MERN Stack, Cloudinary, Mapbox API",
               description: "Engineered a full-stack travel platform with user authentication, increasing user engagement by 35% through enhanced user experience.",
-              highlights: ["35% increase", "RESTful APIs", "25% response time"]
+              highlights: ["35% increase", "RESTful APIs", "25% response time"],
+              github: "https://github.com/nasruddinannapuri/MajorProject",
+              demo: null
+            },
+            {
+              title: "Portfolio Website",
+              period: "2024",
+              tech: "React, CSS3, Responsive Design",
+              description: "Modern, responsive portfolio website showcasing projects and skills with dark theme and smooth animations.",
+              highlights: ["Dark theme", "Mobile responsive", "Smooth animations"],
+              github: "https://github.com/KSaiSreeLasya/PORTFOLIO",
+              demo: "https://portfoliowebsite-5b94.onrender.com/"
             }
           ];
 
@@ -150,6 +165,43 @@
                 )
               ),
 
+              // Services Landing Section
+              activeSection === 'home' && React.createElement('section', { className: 'services-section' },
+                React.createElement('div', { className: 'container' },
+                  React.createElement('div', { className: 'services-header' },
+                    React.createElement('div', { className: 'services-image' },
+                      React.createElement('img', {
+                        src: 'https://cdn.builder.io/api/v1/image/assets%2F2f195b82614d46a0b777d649ad418b24%2Ffa2ce4f77235473f98f5b6165cea9e55?format=webp&width=800',
+                        alt: 'Professional Team Meeting',
+                        className: 'services-img'
+                      })
+                    ),
+                    React.createElement('div', { className: 'services-title' },
+                      React.createElement('h2', null, 'Things ', React.createElement('span', { className: 'highlight' }, 'I can do')),
+                      React.createElement('h3', null, 'To Grow ', React.createElement('span', { className: 'highlight-secondary' }, 'Your Business'), ' More')
+                    )
+                  ),
+                  React.createElement('div', { className: 'services-grid' },
+                    React.createElement('div', { className: 'service-card' },
+                      React.createElement('h4', null, 'Web Development'),
+                      React.createElement('p', null, 'Crafting responsive, modern websites using cutting-edge technologies like React, Node.js, and MongoDB. I build dynamic user experiences that engage customers and drive business growth through optimal performance and scalability.')
+                    ),
+                    React.createElement('div', { className: 'service-card' },
+                      React.createElement('h4', null, 'Artist'),
+                      React.createElement('p', null, 'Combining technical skills with creative vision to design visually appealing interfaces. From concept to creation, I bring artistic flair to digital projects while maintaining usability and brand consistency.')
+                    ),
+                    React.createElement('div', { className: 'service-card' },
+                      React.createElement('h4', null, 'Software Developer'),
+                      React.createElement('p', null, 'Building robust, scalable applications using Java, Python, and JavaScript. I focus on clean, maintainable code that solves complex business problems and enhances operational efficiency.')
+                    ),
+                    React.createElement('div', { className: 'service-card' },
+                      React.createElement('h4', null, 'AI Enthusiast'),
+                      React.createElement('p', null, 'Leveraging machine learning and AI technologies to create intelligent solutions. From data analysis to automated systems, I implement AI-driven features that revolutionize business processes.')
+                    )
+                  )
+                )
+              ),
+
               // About Section
               activeSection === 'about' && React.createElement('section', { className: 'about-section' },
                 React.createElement('div', { className: 'container' },
@@ -195,6 +247,14 @@
                             target: '_blank',
                             rel: 'noopener noreferrer'
                           }, 'GitHub Profile')
+                        ),
+                        React.createElement('div', { className: 'contact-item' },
+                          React.createElement('span', { className: 'contact-icon' }, '📸'),
+                          React.createElement('a', {
+                            href: 'https://instagram.com/nasruddinannapuri',
+                            target: '_blank',
+                            rel: 'noopener noreferrer'
+                          }, 'Instagram')
                         )
                       )
                     )
@@ -236,6 +296,20 @@
                           project.highlights.map((highlight, highlightIndex) =>
                             React.createElement('span', { key: highlightIndex, className: 'highlight-tag' }, highlight)
                           )
+                        ),
+                        React.createElement('div', { className: 'project-links' },
+                          project.github && React.createElement('a', {
+                            href: project.github,
+                            target: '_blank',
+                            rel: 'noopener noreferrer',
+                            className: 'project-link github-link'
+                          }, '⚡ GitHub'),
+                          project.demo && React.createElement('a', {
+                            href: project.demo,
+                            target: '_blank',
+                            rel: 'noopener noreferrer',
+                            className: 'project-link demo-link'
+                          }, '🚀 Live Demo')
                         )
                       )
                     )
@@ -288,6 +362,33 @@
                         target: '_blank',
                         rel: 'noopener noreferrer'
                       }, 'Live Portfolio')
+                    ),
+                    React.createElement('div', { className: 'social-media' },
+                      React.createElement('h4', null, 'Connect with me'),
+                      React.createElement('div', { className: 'social-links' },
+                        React.createElement('a', {
+                          href: 'https://github.com/nasruddinannapuri',
+                          target: '_blank',
+                          rel: 'noopener noreferrer',
+                          className: 'social-link github'
+                        }, '📁 GitHub'),
+                        React.createElement('a', {
+                          href: 'https://linkedin.com/in/nasruddinannapuri',
+                          target: '_blank',
+                          rel: 'noopener noreferrer',
+                          className: 'social-link linkedin'
+                        }, '💼 LinkedIn'),
+                        React.createElement('a', {
+                          href: 'https://instagram.com/nasruddinannapuri',
+                          target: '_blank',
+                          rel: 'noopener noreferrer',
+                          className: 'social-link instagram'
+                        }, '📸 Instagram'),
+                        React.createElement('a', {
+                          href: 'mailto:nasruddinannapuri@gmail.com',
+                          className: 'social-link email'
+                        }, '✉️ Email')
+                      )
                     ),
                     React.createElement('div', { className: 'copyright' },
                       React.createElement('p', null, '© 2024 Nasruddin Annapuri. All rights reserved.')
