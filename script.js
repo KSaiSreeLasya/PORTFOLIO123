@@ -662,3 +662,73 @@ function debounce(func, wait) {
 window.addEventListener('scroll', debounce(function() {
     // Debounced scroll functions here
 }, 10));
+
+// Global functions for carousel navigation (called from HTML onclick)
+function scrollSkills(direction) {
+    const carousel = document.getElementById('skillsCarousel');
+    const scrollAmount = 400; // Width of one skill card + gap
+
+    if (direction === 'left') {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+
+function scrollProjects(direction) {
+    const carousel = document.getElementById('projectsCarousel');
+    const scrollAmount = 440; // Width of one project card + gap
+
+    if (direction === 'left') {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+
+// Form submission handler (called from HTML onsubmit)
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const name = form.querySelector('input[placeholder="Your Name"]').value;
+    const email = form.querySelector('input[placeholder="Your Email"]').value;
+    const subject = form.querySelector('input[placeholder="Project Subject"]').value;
+    const message = form.querySelector('textarea').value;
+
+    // Basic validation
+    if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+
+    // Create mailto link
+    const mailtoLink = `mailto:nasruddinannapuri@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${message}`)}`;
+
+    // Open email client
+    window.location.href = mailtoLink;
+
+    // Show success message
+    alert('Thank you for your message! Your email client will open with the pre-filled message.');
+
+    // Reset form
+    form.reset();
+
+    // Add success animation
+    const submitBtn = form.querySelector('.btn-send-message');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span class="btn-icon">✓</span>Message Sent!';
+    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+    setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.background = 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)';
+    }, 3000);
+}
