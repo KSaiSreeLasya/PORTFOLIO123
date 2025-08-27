@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Custom Cursor Follower
+    // Enhanced Custom Cursor with Magnetic Effects
     const cursorFollower = document.getElementById('cursor-follower');
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorRing = document.querySelector('.cursor-ring');
@@ -30,18 +30,58 @@ document.addEventListener('DOMContentLoaded', function() {
     let mouseX = 0, mouseY = 0;
     let ringX = 0, ringY = 0;
     let dotX = 0, dotY = 0;
+    let isHovering = false;
 
     document.addEventListener('mousemove', function(e) {
         mouseX = e.clientX;
         mouseY = e.clientY;
+
+        // Magnetic effect for interactive elements
+        const interactiveElements = document.querySelectorAll('button, a, .project-card, .skill-category');
+        let magneticTarget = null;
+
+        interactiveElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
+
+            if (distance < 100) {
+                magneticTarget = { x: centerX, y: centerY };
+                if (!isHovering) {
+                    cursorFollower.classList.add('cursor-hover');
+                    isHovering = true;
+                }
+            }
+        });
+
+        if (!magneticTarget && isHovering) {
+            cursorFollower.classList.remove('cursor-hover');
+            isHovering = false;
+        }
+
+        // Apply magnetic pull
+        if (magneticTarget) {
+            const pullStrength = 0.3;
+            mouseX += (magneticTarget.x - mouseX) * pullStrength;
+            mouseY += (magneticTarget.y - mouseY) * pullStrength;
+        }
+    });
+
+    document.addEventListener('mousedown', () => {
+        cursorFollower.classList.add('cursor-click');
+    });
+
+    document.addEventListener('mouseup', () => {
+        cursorFollower.classList.remove('cursor-click');
     });
 
     function animateCursor() {
-        // Smooth following animation
-        dotX += (mouseX - dotX) * 0.9;
-        dotY += (mouseY - dotY) * 0.9;
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
+        // Smooth following animation with easing
+        dotX += (mouseX - dotX) * 0.95;
+        dotY += (mouseY - dotY) * 0.95;
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
 
         cursorDot.style.left = dotX + 'px';
         cursorDot.style.top = dotY + 'px';
@@ -344,6 +384,145 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     createScrollIndicators();
+
+    // Hero Stats Counter Animation
+    function animateCounters() {
+        const heroStats = document.querySelectorAll('.hero-stat');
+
+        heroStats.forEach(stat => {
+            const target = parseFloat(stat.getAttribute('data-count'));
+            const numberElement = stat.querySelector('.stat-number');
+            let current = 0;
+            const increment = target / 50;
+            const isDecimal = target % 1 !== 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                if (isDecimal) {
+                    numberElement.textContent = current.toFixed(2);
+                } else {
+                    numberElement.textContent = Math.floor(current);
+                }
+            }, 40);
+        });
+    }
+
+    // Trigger counter animation when hero section is visible
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                heroObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+        heroObserver.observe(heroSection);
+    }
+
+    // Skills Horizontal Scroll
+    let skillsCurrentIndex = 0;
+    const skillsTrack = document.querySelector('.skills-scroll-track');
+    const skillsItems = document.querySelectorAll('.skill-category');
+    const skillsPrevBtn = document.getElementById('skillsPrev');
+    const skillsNextBtn = document.getElementById('skillsNext');
+
+    // Duplicate skills for infinite scroll effect
+    if (skillsTrack && skillsItems.length > 0) {
+        const originalHTML = skillsTrack.innerHTML;
+        skillsTrack.innerHTML = originalHTML + originalHTML;
+
+        function updateSkillsPosition() {
+            const itemWidth = 370; // 350px + 20px gap
+            const translateX = -skillsCurrentIndex * itemWidth;
+            skillsTrack.style.transform = `translateX(${translateX}px)`;
+        }
+
+        skillsPrevBtn?.addEventListener('click', () => {
+            skillsCurrentIndex = Math.max(0, skillsCurrentIndex - 1);
+            updateSkillsPosition();
+        });
+
+        skillsNextBtn?.addEventListener('click', () => {
+            const maxIndex = skillsItems.length - 1;
+            if (skillsCurrentIndex >= maxIndex) {
+                skillsCurrentIndex = 0;
+                skillsTrack.style.transition = 'none';
+                updateSkillsPosition();
+                setTimeout(() => {
+                    skillsTrack.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                }, 50);
+            } else {
+                skillsCurrentIndex++;
+                updateSkillsPosition();
+            }
+        });
+    }
+
+    // Projects Carousel
+    let projectsCurrentIndex = 0;
+    const projectsCarousel = document.querySelector('.projects-carousel');
+    const projectsItems = document.querySelectorAll('.project-card');
+    const projectsPrevBtn = document.getElementById('projectsPrev');
+    const projectsNextBtn = document.getElementById('projectsNext');
+    const projectsDots = document.getElementById('projectsDots');
+
+    // Create dots for projects
+    if (projectsDots && projectsItems.length > 0) {
+        projectsItems.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot ${index === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => {
+                projectsCurrentIndex = index;
+                updateProjectsPosition();
+                updateProjectsDots();
+            });
+            projectsDots.appendChild(dot);
+        });
+    }
+
+    function updateProjectsPosition() {
+        if (projectsCarousel) {
+            const itemWidth = 420; // 400px + 20px gap
+            const translateX = -projectsCurrentIndex * itemWidth;
+            projectsCarousel.style.transform = `translateX(${translateX}px)`;
+        }
+    }
+
+    function updateProjectsDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === projectsCurrentIndex);
+        });
+    }
+
+    projectsPrevBtn?.addEventListener('click', () => {
+        projectsCurrentIndex = projectsCurrentIndex > 0 ? projectsCurrentIndex - 1 : projectsItems.length - 1;
+        updateProjectsPosition();
+        updateProjectsDots();
+    });
+
+    projectsNextBtn?.addEventListener('click', () => {
+        projectsCurrentIndex = projectsCurrentIndex < projectsItems.length - 1 ? projectsCurrentIndex + 1 : 0;
+        updateProjectsPosition();
+        updateProjectsDots();
+    });
+
+    // Auto-advance projects carousel
+    setInterval(() => {
+        if (projectsItems.length > 0) {
+            projectsCurrentIndex = projectsCurrentIndex < projectsItems.length - 1 ? projectsCurrentIndex + 1 : 0;
+            updateProjectsPosition();
+            updateProjectsDots();
+        }
+    }, 5000);
 
     // Enhanced Project Card Interactions
     const projectCards = document.querySelectorAll('.project-card');
