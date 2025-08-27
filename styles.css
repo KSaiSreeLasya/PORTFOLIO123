@@ -1271,6 +1271,107 @@ section {
     }
 }
 
+/* Additional Animations */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(96, 165, 250, 0.6);
+    }
+}
+
+/* Enhanced Hover States */
+.project-link:hover {
+    animation: glow 1.5s infinite;
+}
+
+.skill-category:hover .skill-icon {
+    animation: bounce 1s ease-in-out;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .cursor-follower {
+        display: none !important;
+    }
+
+    .section-scroll-indicator {
+        display: none;
+    }
+
+    .project-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+
+    .whatsapp-btn {
+        padding: 8px 12px;
+    }
+
+    .whatsapp-text {
+        display: none;
+    }
+
+    .whatsapp-icon {
+        margin-right: 0;
+    }
+
+    .project-badge {
+        font-size: 8px;
+        padding: 3px 8px;
+    }
+
+    .tech-icon {
+        font-size: 18px;
+    }
+
+    .skill-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .whatsapp-float,
+    .cursor-follower,
+    .section-scroll-indicator,
+    .stars-background {
+        display: none !important;
+    }
+
+    * {
+        background: white !important;
+        color: black !important;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
