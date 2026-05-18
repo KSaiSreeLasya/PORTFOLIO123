@@ -404,6 +404,16 @@ section {
     animation: float 6s ease-in-out infinite;
     position: relative;
     z-index: 2;
+    overflow: hidden;
+}
+
+.profile-photo-hero {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    animation: float 6s ease-in-out infinite;
 }
 
 .profile-ring {
@@ -541,6 +551,16 @@ section {
     box-shadow: 0 20px 40px rgba(96, 165, 250, 0.3);
     position: relative;
     z-index: 2;
+    animation: profileFloat 4s ease-in-out infinite;
+    overflow: hidden;
+}
+
+.profile-photo-about {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
     animation: profileFloat 4s ease-in-out infinite;
 }
 
@@ -1706,6 +1726,11 @@ section {
         font-size: 13px;
     }
 
+    .websites-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
     /* Slower animation on mobile for better performance */
     .horizontal-scroll-track {
         animation-duration: 40s;
@@ -1795,6 +1820,151 @@ section {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Websites Section */
+.websites {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(45, 27, 105, 0.5) 0%, rgba(26, 27, 58, 0.3) 100%);
+    border-top: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.websites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.website-card {
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+}
+
+.website-card:hover {
+    border-color: rgba(96, 165, 250, 0.5);
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+    box-shadow: 0 25px 50px rgba(96, 165, 250, 0.2);
+    transform: translateY(-8px);
+}
+
+.website-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2d1b69 0%, #1a1b3a 100%);
+}
+
+.website-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.website-card:hover .website-image img {
+    transform: scale(1.1);
+}
+
+.website-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(4px);
+}
+
+.website-card:hover .website-overlay {
+    opacity: 1;
+}
+
+.visit-btn {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3);
+    cursor: pointer;
+}
+
+.visit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(96, 165, 250, 0.4);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.website-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.website-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.website-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.website-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(96, 165, 250, 0.15);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #a5d6ff;
+    transition: all 0.3s ease;
+}
+
+.website-card:hover .tech-tag {
+    background: rgba(96, 165, 250, 0.25);
+    border-color: rgba(96, 165, 250, 0.5);
 }
 
 /* Utility Classes */

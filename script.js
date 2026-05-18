@@ -153,8 +153,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Create mailto link
-            const mailtoLink = `mailto:nasruddinannapuri@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
+            const mailtoLink = `mailto:kottesaisreelasya@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+
             // Open email client
             window.location.href = mailtoLink;
             
@@ -710,7 +710,7 @@ function handleFormSubmit(event) {
     }
 
     // Create mailto link
-    const mailtoLink = `mailto:nasruddinannapuri@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${message}`)}`;
+    const mailtoLink = `mailto:kottesaisreelasya@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${message}`)}`;
 
     // Open email client
     window.location.href = mailtoLink;
