@@ -400,11 +400,12 @@ section {
     font-size: 8rem;
     font-weight: 300;
     color: white;
-    box-shadow: 0 20px 60px rgba(96, 165, 250, 0.4);
+    box-shadow: 0 20px 80px rgba(96, 165, 250, 0.6), inset 0 0 30px rgba(255, 255, 255, 0.1);
     animation: float 6s ease-in-out infinite;
     position: relative;
     z-index: 2;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-photo-hero {
@@ -414,6 +415,7 @@ section {
     border-radius: 50%;
     display: block;
     animation: float 6s ease-in-out infinite;
+    filter: brightness(1.08) contrast(1.12) saturate(1.1);
 }
 
 .profile-ring {
@@ -422,10 +424,11 @@ section {
     left: -15px;
     right: -15px;
     bottom: -15px;
-    border: 3px solid rgba(96, 165, 250, 0.3);
+    border: 3px solid rgba(96, 165, 250, 0.4);
     border-radius: 50%;
     animation: rotate 10s linear infinite;
     z-index: 1;
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
 }
 
 .floating-icons {
@@ -441,15 +444,23 @@ section {
     position: absolute;
     font-size: 2rem;
     animation: floatIcon 4s ease-in-out infinite;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(96, 165, 250, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+    background: rgba(96, 165, 250, 0.25);
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .floating-icon:nth-child(1) {
@@ -548,11 +559,12 @@ section {
     font-size: 6rem;
     font-weight: 300;
     color: white;
-    box-shadow: 0 20px 40px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 20px 60px rgba(96, 165, 250, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 2;
     animation: profileFloat 4s ease-in-out infinite;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-photo-about {
@@ -562,6 +574,7 @@ section {
     border-radius: 20px;
     display: block;
     animation: profileFloat 4s ease-in-out infinite;
+    filter: brightness(1.05) contrast(1.1);
 }
 
 .photo-placeholder {
@@ -578,6 +591,7 @@ section {
     border-radius: 25px;
     z-index: 1;
     animation: glowPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.4), 0 0 60px rgba(96, 165, 250, 0.2);
 }
 
 .photo-floating-elements {
@@ -593,15 +607,17 @@ section {
     position: absolute;
     font-size: 1.5rem;
     animation: techFloat 3s ease-in-out infinite;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    background: rgba(96, 165, 250, 0.15);
+    backdrop-filter: blur(8px);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 .floating-tech:nth-child(1) {
@@ -622,13 +638,19 @@ section {
     animation-delay: 2s;
 }
 
+.floating-tech:hover {
+    transform: scale(1.2);
+    background: rgba(96, 165, 250, 0.25);
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
 @keyframes techFloat {
     0%, 100% {
         transform: translateY(0px) scale(1);
-        opacity: 0.8;
+        opacity: 0.9;
     }
     50% {
-        transform: translateY(-15px) scale(1.1);
+        transform: translateY(-15px) scale(1.15);
         opacity: 1;
     }
 }

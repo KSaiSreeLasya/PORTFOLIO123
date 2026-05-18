@@ -385,6 +385,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     createScrollIndicators();
 
+    // Download Resume Button Toggle
+    const downloadBtn = document.querySelector('.btn-download-enhanced');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            const btnText = this.querySelector('span:not(.btn-icon)');
+            const btnIcon = this.querySelector('.btn-icon');
+
+            if (btnText.textContent === 'Download Resume') {
+                btnText.textContent = 'Giving Resume';
+                btnIcon.textContent = '⬇️';
+                this.style.background = 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)';
+                this.style.boxShadow = '0 8px 30px rgba(59, 130, 246, 0.5)';
+
+                // Reset after a moment
+                setTimeout(() => {
+                    btnText.textContent = 'Download Resume';
+                    btnIcon.textContent = '📄';
+                    this.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                    this.style.boxShadow = '0 4px 20px rgba(16, 185, 129, 0.3)';
+                }, 2000);
+            }
+        });
+    }
+
     // Hero Stats Counter Animation
     function animateCounters() {
         const heroStats = document.querySelectorAll('.hero-stat');
