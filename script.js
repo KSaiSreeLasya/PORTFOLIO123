@@ -360,8 +360,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.background = 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)';
                 this.style.boxShadow = '0 8px 30px rgba(59, 130, 246, 0.5)';
 
-                // Trigger download - replace with your PDF URL
-                const pdfUrl = 'https://cdn.builder.io/o/assets%2Fcb8e28b98e7d478c907b197aa0e49640%2Fyour-resume-pdf-id?alt=media';
+                // Use Google Drive export link
+                const googleDriveId = '1-iMSCWhciSmsixfcsZ5BLvwEdDn8tVkm';
+                const pdfUrl = `https://drive.google.com/uc?export=download&id=${googleDriveId}`;
                 const link = document.createElement('a');
                 link.href = pdfUrl;
                 link.download = 'Kotte_Sai_Sree_Lasya_Resume.pdf';
