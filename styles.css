@@ -1154,6 +1154,12 @@ section {
     gap: 4rem;
 }
 
+.contact-content.contact-info-only {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .contact-info h3 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
