@@ -126,45 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav(); // Call once on load
 
-    // Form submission
-    const contactForm = document.querySelector('.form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const subject = this.querySelector('input[type="text"]:nth-of-type(2)').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Basic validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            // Create mailto link
-            const mailtoLink = `mailto:kottesaisreelasya@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            alert('Thank you for your message! Your email client will open with the pre-filled message.');
-            
-            // Reset form
-            this.reset();
-        });
-    }
 
     // Enhanced Intersection Observer for animations
     const observerOptions = {
@@ -384,6 +345,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     createScrollIndicators();
+
+    // Download Resume Button Toggle
+    const downloadBtn = document.querySelector('.btn-download-enhanced');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const btnText = this.querySelector('span:not(.btn-icon)');
+            const btnIcon = this.querySelector('.btn-icon');
+
+            if (btnText.textContent === 'Download Resume') {
+                btnText.textContent = 'Giving Resume';
+                btnIcon.textContent = '⬇️';
+                this.style.background = 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)';
+                this.style.boxShadow = '0 8px 30px rgba(59, 130, 246, 0.5)';
+
+                // Use Google Drive export link
+                const googleDriveId = '1-iMSCWhciSmsixfcsZ5BLvwEdDn8tVkm';
+                const pdfUrl = `https://drive.google.com/uc?export=download&id=${googleDriveId}`;
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.download = 'Kotte_Sai_Sree_Lasya_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                // Reset after a moment
+                setTimeout(() => {
+                    btnText.textContent = 'Download Resume';
+                    btnIcon.textContent = '📄';
+                    this.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                    this.style.boxShadow = '0 4px 20px rgba(16, 185, 129, 0.3)';
+                }, 2000);
+            }
+        });
+    }
 
     // Hero Stats Counter Animation
     function animateCounters() {
@@ -684,51 +680,4 @@ function scrollProjects(direction) {
     } else {
         carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
-}
-
-// Form submission handler (called from HTML onsubmit)
-function handleFormSubmit(event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const name = form.querySelector('input[placeholder="Your Name"]').value;
-    const email = form.querySelector('input[placeholder="Your Email"]').value;
-    const subject = form.querySelector('input[placeholder="Project Subject"]').value;
-    const message = form.querySelector('textarea').value;
-
-    // Basic validation
-    if (!name || !email || !subject || !message) {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-
-    // Create mailto link
-    const mailtoLink = `mailto:kottesaisreelasya@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${message}`)}`;
-
-    // Open email client
-    window.location.href = mailtoLink;
-
-    // Show success message
-    alert('Thank you for your message! Your email client will open with the pre-filled message.');
-
-    // Reset form
-    form.reset();
-
-    // Add success animation
-    const submitBtn = form.querySelector('.btn-send-message');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<span class="btn-icon">✓</span>Message Sent!';
-    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-
-    setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-        submitBtn.style.background = 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%)';
-    }, 3000);
 }

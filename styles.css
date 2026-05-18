@@ -236,12 +236,13 @@ section {
 }
 
 .hero-greeting {
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     color: #ffffff;
-    text-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+    text-shadow: 0 0 40px rgba(96, 165, 250, 0.4), 0 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: -1px;
 }
 
 .highlight-role {
@@ -250,32 +251,50 @@ section {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(96, 165, 250, 0.6);
+    }
 }
 
 .hero-tagline {
-    font-size: 1.4rem;
-    color: #cbd5e1;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
     animation: slideInLeft 1.2s ease-out 0.2s both;
+    font-weight: 400;
 }
 
 .hero-stats {
     display: flex;
     gap: 2rem;
-    margin-bottom: 2.5rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(96, 165, 250, 0.2);
     animation: slideInLeft 1.2s ease-out 0.4s both;
+    box-shadow: 0 8px 32px rgba(96, 165, 250, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .hero-stat {
     text-align: center;
     flex: 1;
     position: relative;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.hero-stat:hover {
+    transform: translateY(-5px);
 }
 
 .hero-stat::after {
@@ -285,7 +304,7 @@ section {
     right: 0;
     width: 1px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(96, 165, 250, 0.2);
 }
 
 .hero-stat:last-child::after {
@@ -294,19 +313,19 @@ section {
 
 .hero-stat .stat-number {
     display: block;
-    font-size: 2.8rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     color: #60a5fa;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+    text-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
 }
 
 .hero-stat .stat-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
 .hero-buttons {
@@ -354,27 +373,28 @@ section {
     background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
     color: #ffffff;
     border-color: #60a5fa;
-    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(96, 165, 250, 0.5);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary {
     background: transparent;
     color: #60a5fa;
-    border-color: #60a5fa;
-    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
+    border: 2px solid rgba(96, 165, 250, 0.5);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.1);
 }
 
 .btn-secondary:hover {
     background: rgba(96, 165, 250, 0.1);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(96, 165, 250, 0.4);
+    color: #93c5fd;
+    transform: translateY(-5px) scale(1.02);
+    border-color: #93c5fd;
+    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.3);
 }
 
 .hero-image {
@@ -400,11 +420,12 @@ section {
     font-size: 8rem;
     font-weight: 300;
     color: white;
-    box-shadow: 0 20px 60px rgba(96, 165, 250, 0.4);
+    box-shadow: 0 20px 80px rgba(96, 165, 250, 0.6), inset 0 0 30px rgba(255, 255, 255, 0.1);
     animation: float 6s ease-in-out infinite;
     position: relative;
     z-index: 2;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-photo-hero {
@@ -414,6 +435,7 @@ section {
     border-radius: 50%;
     display: block;
     animation: float 6s ease-in-out infinite;
+    filter: brightness(1.08) contrast(1.12) saturate(1.1);
 }
 
 .profile-ring {
@@ -422,10 +444,11 @@ section {
     left: -15px;
     right: -15px;
     bottom: -15px;
-    border: 3px solid rgba(96, 165, 250, 0.3);
+    border: 3px solid rgba(96, 165, 250, 0.4);
     border-radius: 50%;
     animation: rotate 10s linear infinite;
     z-index: 1;
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
 }
 
 .floating-icons {
@@ -441,15 +464,23 @@ section {
     position: absolute;
     font-size: 2rem;
     animation: floatIcon 4s ease-in-out infinite;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(96, 165, 250, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+    background: rgba(96, 165, 250, 0.25);
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .floating-icon:nth-child(1) {
@@ -548,11 +579,12 @@ section {
     font-size: 6rem;
     font-weight: 300;
     color: white;
-    box-shadow: 0 20px 40px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 20px 60px rgba(96, 165, 250, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 2;
     animation: profileFloat 4s ease-in-out infinite;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .profile-photo-about {
@@ -562,6 +594,7 @@ section {
     border-radius: 20px;
     display: block;
     animation: profileFloat 4s ease-in-out infinite;
+    filter: brightness(1.05) contrast(1.1);
 }
 
 .photo-placeholder {
@@ -578,6 +611,7 @@ section {
     border-radius: 25px;
     z-index: 1;
     animation: glowPulse 3s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.4), 0 0 60px rgba(96, 165, 250, 0.2);
 }
 
 .photo-floating-elements {
@@ -593,15 +627,17 @@ section {
     position: absolute;
     font-size: 1.5rem;
     animation: techFloat 3s ease-in-out infinite;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    background: rgba(96, 165, 250, 0.15);
+    backdrop-filter: blur(8px);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 .floating-tech:nth-child(1) {
@@ -622,13 +658,19 @@ section {
     animation-delay: 2s;
 }
 
+.floating-tech:hover {
+    transform: scale(1.2);
+    background: rgba(96, 165, 250, 0.25);
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
 @keyframes techFloat {
     0%, 100% {
         transform: translateY(0px) scale(1);
-        opacity: 0.8;
+        opacity: 0.9;
     }
     50% {
-        transform: translateY(-15px) scale(1.1);
+        transform: translateY(-15px) scale(1.15);
         opacity: 1;
     }
 }
@@ -1052,6 +1094,99 @@ section {
     border: 1px solid rgba(96, 165, 250, 0.2);
 }
 
+/* Work Experience */
+.work-experience {
+    margin-top: 3rem;
+}
+
+.work-experience h3 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #60a5fa;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+}
+
+.experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience-item {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.experience-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(96, 165, 250, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.15);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.experience-header h4 {
+    font-size: 1.3rem;
+    color: #e3f2fd;
+    font-weight: 600;
+    margin: 0;
+}
+
+.company-name {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.experience-period {
+    color: #60a5fa;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0.25rem 0;
+}
+
+.experience-role {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.experience-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-details li {
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.experience-details li:before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #60a5fa;
+    font-weight: bold;
+}
+
 /* Education */
 .education {
     margin-top: 3rem;
@@ -1130,6 +1265,12 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+}
+
+.contact-content.contact-info-only {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contact-info h3 {
